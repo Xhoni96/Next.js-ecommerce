@@ -119,6 +119,12 @@ module default {
     }
 
     type Order {
+    required customerName: str;    
+    required customerEmail: str {
+        constraint exclusive;
+        constraint max_len_value(254);
+        constraint regexp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    };    
     required multi products: Product;
     required isPaid: bool {
         default := false;
