@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { e, client } from "@/lib/edgedb";
 
 import { Separator } from "@/components/ui/separator";

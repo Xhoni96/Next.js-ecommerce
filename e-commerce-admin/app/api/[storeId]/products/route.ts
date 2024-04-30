@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { client, e } from "@/lib/edgedb";
 import type { ProductsRouteParams } from "@/lib/types";
 import { productFormSchema } from "@/lib/validationSchemas";
