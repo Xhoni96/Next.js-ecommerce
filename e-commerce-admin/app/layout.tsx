@@ -12,25 +12,25 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] /* , variable: "--font-sans"  */ });
 
 export const metadata: Metadata = {
-    title: "Admin Dashboard",
-    description: "Admin Dashboard",
+  title: "Admin Dashboard",
+  description: "Admin Dashboard",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <ClerkProvider>
-            <html lang="en" /* suppressHydrationWarning */>
-                <body className={inter.className}>
-                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                        <StoreProvider>
-                            <ToastProvider />
-                            <ModalProvider />
+  return (
+    <ClerkProvider>
+      <html lang="en" /* suppressHydrationWarning */>
+        <body className={inter.className}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <StoreProvider>
+              <ToastProvider />
+              <ModalProvider />
 
-                            {children}
-                        </StoreProvider>
-                    </ThemeProvider>
-                </body>
-            </html>
-        </ClerkProvider>
-    );
+              {children}
+            </StoreProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
+  );
 }
