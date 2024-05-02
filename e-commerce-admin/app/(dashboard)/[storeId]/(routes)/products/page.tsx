@@ -33,6 +33,7 @@ const ProductsPage = async ({ params }: { params: ProductsRouteParams }) => {
     category: product.category.name,
     size: product.size.name,
     createdAt: IntlDateTimeFormat.format(new Date(product.createdAt)),
+    updatedAt: IntlDateTimeFormat.format(new Date(product.updatedAt)),
     price: formatter.format(Number(product.price)),
   }));
 

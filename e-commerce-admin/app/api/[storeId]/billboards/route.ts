@@ -29,7 +29,7 @@ export async function POST(req: Request, { params }: { params: BillboardRoutePar
     const { userId } = auth();
     const body = await req.json();
 
-    const { label, imageUrl } = body;
+    const { label, imageUrl, isDefault } = body;
 
     if (!userId) {
       return new NextResponse("Unauthenticated", { status: 403 });
@@ -61,6 +61,7 @@ export async function POST(req: Request, { params }: { params: BillboardRoutePar
       .insert(e.Billboard, {
         label,
         imageUrl,
+        isDefault,
         store,
       })
       .run(client);

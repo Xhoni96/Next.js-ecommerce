@@ -24,6 +24,7 @@ import { billboardFormSchema } from "@/lib/validationSchemas";
 import type { BillboardFormType, BillboardRouteParams } from "@/lib/types";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { AlertModal } from "@/components/modals/AlertModal";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface BillboardFormProps {
   initialData: BillboardFormType | null;
@@ -38,7 +39,7 @@ export const BillboardForm = ({ initialData }: BillboardFormProps) => {
 
   const form = useForm<BillboardFormType>({
     resolver: zodResolver(billboardFormSchema),
-    defaultValues: initialData ?? { label: "", imageUrl: "" },
+    defaultValues: initialData ?? { label: "", imageUrl: "", isDefault: false },
   });
 
   const onSubmit = (data: BillboardFormType) => {
@@ -97,7 +98,7 @@ export const BillboardForm = ({ initialData }: BillboardFormProps) => {
   const title = initialData ? "Edit billboard" : "Create billboard";
   const description = initialData ? "Edit a billboard." : "Add a new billboard";
   const toastMessage = initialData ? "Billboard updated." : "Billboard created.";
-  const toastLoadingMessage = initialData ? "Updating billboard name..." : "Creating billboard...";
+  const toastLoadingMessage = initialData ? "Updating billboard..." : "Creating billboard...";
   const action = initialData ? "Save changes" : "Create";
 
   return (
@@ -147,7 +148,38 @@ export const BillboardForm = ({ initialData }: BillboardFormProps) => {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="isDefault"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <div className="items-top flex space-x-2 border p-4 rounded-sm">
+                      <Checkbox
+                        id="default"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        disabled={loading}
+                      />
+                      <div className="flex flex-col gap-1.5 leading-none">
+                        <label
+                          htmlFor="default"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          Default
+                        </label>
+                        <p className="text-sm text-muted-foreground">
+                          This billboard will be the default billboard for this store.
+                        </p>
+                      </div>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
+
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
           </Button>

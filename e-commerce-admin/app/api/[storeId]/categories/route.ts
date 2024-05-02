@@ -11,6 +11,7 @@ export async function GET(_: Request, { params }: { params: CategoriesRouteParam
 
     const categories = await e
       .select(e.Category, (category) => ({
+        id: true,
         name: true,
         createdAt: true,
         filter: e.op(category.store.id, "=", e.uuid(params.storeId)),

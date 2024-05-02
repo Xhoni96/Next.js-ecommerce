@@ -30,7 +30,7 @@ export async function PATCH(req: Request, { params }: { params: BillboardRoutePa
 
     const body = await req.json();
 
-    const { label, imageUrl } = body;
+    const { label, imageUrl, isDefault } = body;
 
     if (!userId) {
       return new NextResponse("Unauthenticated", { status: 403 });
@@ -68,6 +68,7 @@ export async function PATCH(req: Request, { params }: { params: BillboardRoutePa
         set: {
           label,
           imageUrl,
+          isDefault,
         },
       }))
       .run(client);
