@@ -15,6 +15,7 @@ export async function GET(_: Request, { params }: { params: ProductsRouteParams 
         ...e.Product["*"],
         color: { ...e.Color["*"] },
         size: { ...e.Size["*"] },
+        category: { ...e.Category["*"] },
 
         filter: e.op(product.store.id, "=", e.uuid(params.storeId)),
       }))

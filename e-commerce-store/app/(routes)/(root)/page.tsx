@@ -10,13 +10,9 @@ export default async function Home() {
 
   return (
     <Container>
-      <div className="space-y-10 pb-10">
-        {billboard ? <Billboard data={billboard} /> : null}
-      </div>
+      <div className="space-y-10 pb-10">{billboard ? <Billboard data={billboard} /> : null}</div>
       <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-        {products ? (
-          <ProductList title="Featured Products" products={products} />
-        ) : null}
+        <ProductList title="Featured Products" products={products} />
       </div>
     </Container>
   );
