@@ -1,3 +1,5 @@
+import { Container } from "@/components/ui/Container";
+
 export default function Category() {
-  return <div>hey</div>;
+  return <Container>hey</Container>;
 }

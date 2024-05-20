@@ -13,17 +13,9 @@ export async function GET(_: Request, { params }: { params: ProductsRouteParams 
     const product = await e
       .select(e.Product, () => ({
         ...e.Product["*"],
-        category: {
-          id: true,
-        },
-        color: {
-          id: true,
-          value: true,
-        },
-        size: {
-          id: true,
-          value: true,
-        },
+        category: { ...e.Category["*"] },
+        color: { ...e.Color["*"] },
+        size: { ...e.Size["*"] },
 
         filter_single: { id: params.productId },
       }))

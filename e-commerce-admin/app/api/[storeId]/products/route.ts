@@ -1,25 +1,45 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { client, e } from "@/lib/edgedb";
 import type { ProductsRouteParams } from "@/lib/types";
 import { productFormSchema } from "@/lib/validationSchemas";
 
-export async function GET(_: Request, { params }: { params: ProductsRouteParams }) {
+export async function GET(request: NextRequest, { params }: { params: ProductsRouteParams }) {
   try {
     if (!params.storeId) {
       return new NextResponse("Store id is required", { status: 400 });
     }
 
-    const products = await e
-      .select(e.Product, (product) => ({
-        ...e.Product["*"],
-        color: { ...e.Color["*"] },
-        size: { ...e.Size["*"] },
-        category: { ...e.Category["*"] },
+    const categoryId = request.nextUrl.searchParams.get("categoryId");
+    const productId = request.nextUrl.searchParams.get("productId");
 
-        filter: e.op(product.store.id, "=", e.uuid(params.storeId)),
-      }))
-      .run(client);
+    const query = e.params(
+      {
+        categoryId: e.optional(e.uuid),
+        productId: e.optional(e.uuid),
+      },
+      (queryParams) =>
+        e.select(e.Product, (product) => ({
+          ...e.Product["*"],
+          color: { ...e.Color["*"] },
+          size: { ...e.Size["*"] },
+          category: { ...e.Category["*"] },
+
+          filter: e.all(
+            e.set(
+              e.op(product.store.id, "=", e.uuid(params.storeId)),
+              e.op(product.category.id, "=", queryParams.categoryId),
+              e.op(product.id, "!=", queryParams.productId),
+              e.op(product.isArchived, "=", e.bool(false))
+            )
+          ),
+        }))
+    );
+
+    const products = await query.run(client, {
+      categoryId,
+      productId,
+    });
 
     return NextResponse.json(products);
   } catch (error) {
