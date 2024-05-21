@@ -12,7 +12,7 @@ export async function GET(_: Request, { params }: { params: CategoriesRouteParam
     const category = await e
       .select(e.Category, () => ({
         name: true,
-        billboard: true,
+        billboard: { ...e.Billboard["*"] },
         filter_single: { id: params.categoryId },
       }))
       .run(client);

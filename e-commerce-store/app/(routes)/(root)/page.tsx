@@ -1,5 +1,5 @@
 import { Container } from "@/components/ui/Container";
-import { Billboard } from "./components/Billboard";
+import { Billboard } from "@/components/Billboard";
 import { ProductList } from "./components/ProductList";
 import { getRootData } from "@/actions/getRootData";
 

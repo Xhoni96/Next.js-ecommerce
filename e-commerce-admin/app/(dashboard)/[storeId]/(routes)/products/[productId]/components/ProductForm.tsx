@@ -126,7 +126,7 @@ export const ProductForm = ({ initialData, categories, sizes, colors }: ProductF
   const title = initialData ? "Edit product" : "Create product";
   const description = initialData ? "Edit a product." : "Add a new product";
   const toastMessage = initialData ? "Product updated." : "Product created.";
-  const toastLoadingMessage = initialData ? "Updating product name..." : "Creating product...";
+  const toastLoadingMessage = initialData ? "Updating product data..." : "Creating product...";
   const action = initialData ? "Save changes" : "Create";
 
   return (

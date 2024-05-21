@@ -10,7 +10,7 @@ type Props = {
   categoryId: string;
 };
 
-export const getProductsData = async ({ productId, categoryId }: Props): Promise<Res> => {
+export const getProductData = async ({ productId, categoryId }: Props): Promise<Res> => {
   const results = await Promise.allSettled([
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`),
 
@@ -22,9 +22,3 @@ export const getProductsData = async ({ productId, categoryId }: Props): Promise
     relatedProducts: results[1].status === "fulfilled" ? await results[1].value.json() : null,
   };
 };
-
-// const getProduct = (productId: string) =>
-//   fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`).then((res) => res.json());
-
-// const getProducts = (categoryId: string) =>
-//   fetch(`${process.env.NEXT_PUBLIC_API_URL}/products?categoryId=${categoryId}`).then((res) => res.json());

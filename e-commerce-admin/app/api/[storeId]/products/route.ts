@@ -12,11 +12,15 @@ export async function GET(request: NextRequest, { params }: { params: ProductsRo
 
     const categoryId = request.nextUrl.searchParams.get("categoryId");
     const productId = request.nextUrl.searchParams.get("productId");
+    const colorId = request.nextUrl.searchParams.get("colorId");
+    const sizeId = request.nextUrl.searchParams.get("sizeId");
 
     const query = e.params(
       {
         categoryId: e.optional(e.uuid),
         productId: e.optional(e.uuid),
+        colorId: e.optional(e.uuid),
+        sizeId: e.optional(e.uuid),
       },
       (queryParams) =>
         e.select(e.Product, (product) => ({
@@ -29,6 +33,8 @@ export async function GET(request: NextRequest, { params }: { params: ProductsRo
             e.set(
               e.op(product.store.id, "=", e.uuid(params.storeId)),
               e.op(product.category.id, "=", queryParams.categoryId),
+              e.op(product.size.id, "=", queryParams.sizeId),
+              e.op(product.color.id, "=", queryParams.colorId),
               e.op(product.id, "!=", queryParams.productId),
               e.op(product.isArchived, "=", e.bool(false))
             )
@@ -39,6 +45,8 @@ export async function GET(request: NextRequest, { params }: { params: ProductsRo
     const products = await query.run(client, {
       categoryId,
       productId,
+      colorId,
+      sizeId,
     });
 
     return NextResponse.json(products);

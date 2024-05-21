@@ -1,4 +1,4 @@
-import { getProductsData } from "@/actions/getProducts";
+import { getProductData } from "@/actions/getProduct";
 import { Gallery } from "./components/Gallery";
 import { Currency } from "@/components/ui/Currency";
 import { Button } from "@/components/ui/Button";
@@ -18,7 +18,7 @@ type ProductType = {
 const ProductPage = async ({ searchParams, params }: ProductType) => {
   const categoryId = searchParams.categoryId;
   const productId = params.productId;
-  const { relatedProducts, product } = await getProductsData({ productId, categoryId });
+  const { relatedProducts, product } = await getProductData({ productId, categoryId });
 
   if (!product) return null;
 

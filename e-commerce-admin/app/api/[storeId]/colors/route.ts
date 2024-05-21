@@ -11,6 +11,7 @@ export async function GET(_: Request, { params }: { params: ColorsRouteParams })
 
     const colors = await e
       .select(e.Color, (color) => ({
+        id: true,
         name: true,
         value: true,
         filter: e.op(color.store.id, "=", e.uuid(params.storeId)),

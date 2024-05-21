@@ -1,5 +1,5 @@
 import { NoResults } from "@/components/ui/NoResults";
-import { ProductCard } from "@/components/ui/ProductCard";
+import { ProductCard } from "@/components/ProductCard";
 import type { Product } from "@/lib/types";
 
 type ProductsProps = {

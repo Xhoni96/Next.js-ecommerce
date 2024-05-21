@@ -6,8 +6,8 @@ import type { MouseEvent } from "react";
 import { Expand, ShoppingCart } from "lucide-react";
 
 import type { Product } from "@/lib/types";
-import { IconButton } from "./IconButton";
-import { Currency } from "./Currency";
+import { IconButton } from "./ui/IconButton";
+import { Currency } from "./ui/Currency";
 
 type ProductCardProps = {
   data: Product;

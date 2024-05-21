@@ -11,6 +11,7 @@ export async function GET(_: Request, { params }: { params: SizesRouteParams }) 
 
     const sizes = await e
       .select(e.Size, (size) => ({
+        id: true,
         name: true,
         value: true,
         filter: e.op(size.store.id, "=", e.uuid(params.storeId)),
