@@ -40,7 +40,7 @@ const ProductPage = async ({ searchParams, params }: ProductType) => {
             <div className="rounded-full w-5 h-5" style={{ backgroundColor: product.color.value }} />
           </div>
 
-          <Button className="flex gap-2 items-center w-40 mt-4">
+          <Button className="flex gap-2 items-center w-40 mt-4 rounded-full px-5 py-5 font-semibold">
             Add to Cart
             <ShoppingCart />
           </Button>
