@@ -19,7 +19,7 @@ type Props = {
 export default async function Category({ params, searchParams }: Props) {
   const { category, sizes, colors, products } = await getCategoryData({
     categoryId: params.categoryId,
-    product: {
+    productQuery: {
       sizeId: searchParams.sizeId,
       colorId: searchParams.colorId,
     },
@@ -30,7 +30,7 @@ export default async function Category({ params, searchParams }: Props) {
   }
 
   return (
-    <Container className="px-4">
+    <Container>
       <Billboard data={category.billboard} />
 
       <div className="px-4 sm:px-6 lg:px-8 pb-24">

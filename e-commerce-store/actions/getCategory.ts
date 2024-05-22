@@ -9,14 +9,14 @@ type Res = {
 
 type Props = {
   categoryId: string;
-  product?: Partial<{
+  productQuery?: Partial<{
     sizeId: string;
     colorId: string;
   }>;
 };
 
-export const getCategoryData = async ({ categoryId, product }: Props): Promise<Res> => {
-  const searchParamObject = { ...product, categoryId };
+export const getCategoryData = async ({ categoryId, productQuery }: Props): Promise<Res> => {
+  const searchParamObject = { ...productQuery, categoryId };
 
   Object.keys(searchParamObject).forEach((key) => {
     if (!searchParamObject[key as keyof typeof searchParamObject]) {

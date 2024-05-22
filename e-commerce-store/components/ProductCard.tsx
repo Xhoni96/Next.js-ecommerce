@@ -6,8 +6,8 @@ import type { MouseEvent } from "react";
 import { Expand, ShoppingCart } from "lucide-react";
 
 import type { Product } from "@/lib/types";
-import { IconButton } from "./ui/IconButton";
 import { Currency } from "./ui/Currency";
+import { Button } from "./ui/Button";
 
 type ProductCardProps = {
   data: Product;
@@ -35,12 +35,12 @@ export const ProductCard = ({ data }: ProductCardProps) => {
 
         <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute w-full px-6 bottom-5">
           <div className="flex gap-x-4 justify-center">
-            <IconButton onClick={onExpand}>
+            <Button onClick={onExpand} variant="icon" size="icon">
               <Expand size={20} className="text-gray-600" />
-            </IconButton>
-            <IconButton onClick={onAddToCart}>
+            </Button>
+            <Button onClick={onAddToCart} variant="icon" size="icon">
               <ShoppingCart size={20} className="text-gray-600" />
-            </IconButton>
+            </Button>
           </div>
         </div>
       </div>
