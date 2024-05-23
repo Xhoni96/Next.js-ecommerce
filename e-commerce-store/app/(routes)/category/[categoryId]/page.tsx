@@ -43,8 +43,8 @@ export default async function Category({ params, searchParams }: Props) {
           <div className="mt-6 lg:col-span-4 lg:mt-0">
             {products.length === 0 && <NoResults />}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {products.map((item) => (
-                <ProductCard key={item.id} data={item} />
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
               ))}
             </div>
           </div>

@@ -41,6 +41,7 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
     router.push(`${pathname}?${createQueryString(valueKey, e.currentTarget.value)}`, {
       scroll: false,
     });
+    // router.refresh();
   };
 
   return (

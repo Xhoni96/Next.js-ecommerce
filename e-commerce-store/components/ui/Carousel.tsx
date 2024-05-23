@@ -6,6 +6,7 @@ import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-reac
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -47,7 +48,7 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
       },
-      plugins
+      [WheelGesturesPlugin()]
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
