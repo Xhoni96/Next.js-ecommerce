@@ -6,20 +6,19 @@ import { ShoppingCart } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { Currency } from "@/components/ui/Currency";
 import { Button } from "@/components/ui/Button";
-import { cartProductsAtom, previewModalAtom } from "@/atoms/atoms";
-import toast from "react-hot-toast";
+import { previewModalAtom } from "@/atoms/atoms";
+import { useCart } from "@/lib/hooks/useCart";
 
 interface InfoProps {
   product: Product;
 }
 
 export const ProductInfo = ({ product }: InfoProps) => {
-  const setCartProducts = useSetAtom(cartProductsAtom);
+  const cart = useCart();
   const setPreviewModal = useSetAtom(previewModalAtom);
 
   const onAddToCart = () => {
-    setCartProducts((prev) => [...prev, product]);
-    toast.success("Product added to cart");
+    cart.addProduct(product);
     setPreviewModal(null);
   };
 

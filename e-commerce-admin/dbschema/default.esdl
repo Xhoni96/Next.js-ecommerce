@@ -132,8 +132,8 @@ module default {
     }
 
     type Order {
-        required customerName: str;    
-        required customerEmail: str {
+         customerName: str;    
+         customerEmail: str {
             constraint exclusive;
             constraint max_len_value(254);
             constraint regexp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
@@ -142,8 +142,8 @@ module default {
         required isPaid: bool {
             default := false;
         };
-        required phone: str;
-        required address: str;
+         phone: str;
+         address: str;
                 productNames := array_join(array_agg(.products.name), ", ");
                 totalPrice := sum(.products.price);
 

@@ -94,3 +94,8 @@ export type ProductsRouteParams = {
   storeId: string;
   productId: string;
 };
+
+export type CheckoutRouteParams = {
+  storeId: string;
+  productIds: Array<string>;
+};

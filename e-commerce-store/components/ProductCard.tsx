@@ -9,8 +9,8 @@ import type { Product } from "@/lib/types";
 import { Currency } from "./ui/Currency";
 import { Button } from "./ui/Button";
 import { useSetAtom } from "jotai";
-import { cartProductsAtom, previewModalAtom } from "@/atoms/atoms";
-import toast from "react-hot-toast";
+import { previewModalAtom } from "@/atoms/atoms";
+import { useCart } from "@/lib/hooks/useCart";
 
 type ProductCardProps = {
   product: Product;
@@ -19,7 +19,7 @@ type ProductCardProps = {
 export const ProductCard = ({ product }: ProductCardProps) => {
   const router = useRouter();
   const setPreviewModal = useSetAtom(previewModalAtom);
-  const setCartProducts = useSetAtom(cartProductsAtom);
+  const cart = useCart();
 
   const handleClick = () => {
     router.push(`/product/${product.id}?categoryId=${product.category.id}`);
@@ -32,8 +32,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   const onAddToCart = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setCartProducts((prev) => [...prev, product]);
-    toast.success("Product added to cart");
+    cart.addProduct(product);
   };
 
   return (
