@@ -11,12 +11,15 @@ module default {
             };  
   
         multi products: Product;
-        multi orders: Order;
+        multi orders: Order {
+            on target delete allow;
+        };
           totalSales:= count((select .orders filter .isPaid = true));
           inStock:= count((select .products filter .isArchived = true));
           totalRevenue:= sum(.orders.totalPrice)
 
     }
+
   
   type Billboard {
     required label: str;
@@ -152,26 +155,10 @@ module default {
             default := datetime_current();
         }
        
-        required store: Store {
+        required multi store: Store {
             on target delete delete source;
         };
 
     }
-
-
-
-#   type Image {
-#     required url: str;
-
-#     required createdAt: datetime {
-#         default := datetime_current();
-#     }
-#     required updatedAt: datetime {
-#         default := datetime_current();
-        #   rewrite update using (datetime_of_statement());
-#     }
-
-#     required product: Product;
-# }
 
 }
