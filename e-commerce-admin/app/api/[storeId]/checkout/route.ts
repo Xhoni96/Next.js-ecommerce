@@ -64,6 +64,9 @@ export async function POST(req: Request, { params }: { params: CheckoutRoutePara
     const newOrder = await e
       .insert(e.Order, {
         products: productsQuery,
+        customerEmail: "",
+        customerName: "",
+
         store: e.select(e.Store, () => ({
           filter_single: { id: params.storeId },
         })),

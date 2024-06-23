@@ -44,8 +44,8 @@ export async function POST(request: Request) {
 
         set: {
           isPaid: true,
-          customerName: customerDetails?.name,
-          customerEmail: customerDetails?.email,
+          customerName: customerDetails?.name ?? "",
+          customerEmail: customerDetails?.email ?? "",
           phone: customerDetails?.phone,
           address,
         },

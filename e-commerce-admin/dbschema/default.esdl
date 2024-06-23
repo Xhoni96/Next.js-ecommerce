@@ -133,8 +133,8 @@ module default {
     }
 
     type Order {
-         customerName: str;    
-         customerEmail: str {
+        required customerName: str;    
+        required customerEmail: str {
             # constraint exclusive;
             constraint max_len_value(254);
             constraint regexp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
