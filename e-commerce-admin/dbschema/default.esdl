@@ -126,6 +126,7 @@ module default {
         required category: Category;
         required size: Size;
         required color: Color;
+        link order: Order;
         # multi images: Image;
         # multi orderItems: OrderItem;
        
@@ -134,7 +135,7 @@ module default {
     type Order {
          customerName: str;    
          customerEmail: str {
-            constraint exclusive;
+            # constraint exclusive;
             constraint max_len_value(254);
             constraint regexp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
         };    
@@ -144,8 +145,8 @@ module default {
         };
          phone: str;
          address: str;
-                productNames := array_join(array_agg(.products.name), ", ");
-                totalPrice := sum(.products.price);
+         productNames := array_join(array_agg(.products.name), ", ");
+         totalPrice := sum(.products.price);
 
         required createdAt: datetime {
             default := datetime_current();

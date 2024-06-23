@@ -13,5 +13,7 @@ declare namespace NodeJS {
     STRIPE_API_KEY: string;
 
     FRONTEND_STORE_URL: string;
+
+    STRIPE_WEBHOOK_SECRET: string;
   }
 }

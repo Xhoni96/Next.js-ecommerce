@@ -65,7 +65,8 @@ export type ProductFormType = z.infer<typeof productFormSchema>;
 
 export type Order = {
   productNames: string;
-  phone: string;
+  phone: string | null;
+  address: string | null;
   isPaid: boolean;
   totalPrice: string;
 };
@@ -97,5 +98,4 @@ export type ProductsRouteParams = {
 
 export type CheckoutRouteParams = {
   storeId: string;
-  productIds: Array<string>;
 };

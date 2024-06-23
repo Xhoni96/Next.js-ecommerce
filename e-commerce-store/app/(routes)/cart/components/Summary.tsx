@@ -17,7 +17,6 @@ export const Summary = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    debugger;
     if (searchParams.get("success")) {
       toast.success("Payment completed.");
       cart.removeAll();

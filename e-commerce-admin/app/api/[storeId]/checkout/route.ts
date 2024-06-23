@@ -3,7 +3,6 @@ import { stripe } from "@/lib/stripe";
 import { client, e } from "@/lib/edgedb";
 
 import type { CheckoutRouteParams } from "@/lib/types";
-import Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +15,7 @@ const headers = {
 export async function OPTIONS() {
   return NextResponse.json({}, { headers });
 }
+
 export async function POST(req: Request, { params }: { params: CheckoutRouteParams }) {
   try {
     const body = await req.json();
@@ -29,11 +29,9 @@ export async function POST(req: Request, { params }: { params: CheckoutRoutePara
     if (!params.storeId) {
       return new NextResponse("Store id is required", { status: 400 });
     }
+
     const productsQuery = e.select(e.Product, (product) => ({
       ...e.Product["*"],
-      // color: { ...e.Color["*"] },
-      // size: { ...e.Size["*"] },
-      // category: { ...e.Category["*"] },
 
       filter: e.all(
         e.set(
@@ -72,7 +70,7 @@ export async function POST(req: Request, { params }: { params: CheckoutRoutePara
       })
       .run(client);
 
-    const line_items: Array<Stripe.Checkout.SessionCreateParams.LineItem> = products.map((product) => {
+    const line_items = products.map((product) => {
       return {
         quantity: 1,
         price_data: {
@@ -96,6 +94,7 @@ export async function POST(req: Request, { params }: { params: CheckoutRoutePara
       cancel_url: `${process.env.FRONTEND_STORE_URL}/cart?canceled=1`,
       metadata: {
         orderId: newOrder.id,
+        storeId: params.storeId,
       },
     });
 
