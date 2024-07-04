@@ -41,7 +41,7 @@ export const ImageUpload = ({ values, onDelete, onChange, disabled }: Props) => 
         onQueuesEnd={onQueuesEnd}
         uploadPreset="tertci0e"
         options={{
-          clientAllowedFormats: ["jpg", "png"],
+          clientAllowedFormats: ["jpg", "png", "webp"],
           maxFileSize: 2097152 /* 2MB */,
         }}
       >
