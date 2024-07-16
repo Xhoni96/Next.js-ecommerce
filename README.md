@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-    <a href="https://github.com/Xhoni96/e-commerce-Next.js/tree/main/e-commerce-admin" target="_blank" style="display:flex;gap:2rem;">
+    <a href="https://github.com/Xhoni96/e-commerce-Next.js/tree/main/e-commerce-admin" target="_blank" >
       <img src="https://res.cloudinary.com/drvanrh8x/image/upload/v1721086505/assets/Dashboard_iy7acq.png" alt="CMS Banner" width=48%>
         <img src="https://res.cloudinary.com/drvanrh8x/image/upload/v1721086506/assets/FE-Store_fmshid.png" alt="Frontend Banner" width=48%>
     </a>
