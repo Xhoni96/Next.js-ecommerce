@@ -6,18 +6,18 @@
     </a>
   <br />
 
-  <div style="margin-top:20px;">
+  <div>
     <a href="https://nextjs.org/" target="_blank">
          <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     </a>
-     <a href="https://www.typescriptlang.org/" target="_blank" style="text-decoration:none !important;">
+     <a href="https://www.typescriptlang.org/" target="_blank">
        <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
     </a>
      <a href="https://tailwindcss.com/" target="_blank">
      <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
     </a>
      <a href="https://www.edgedb.com/" target="_blank">
-      <img src="https://img.shields.io/badge/EdgeDB-38ef7d?style=for-the-badge&color=38ef7d" alt="edgedb" />
+      <img src="https://img.shields.io/badge/EdgeDB-38ef7d?style=for-the-badge&color=38ef7d" alt="edgedb"  />
     </a>
      <a href="https://clerk.com/" target="_blank">
       <img src="https://img.shields.io/badge/Clerk-black?style=for-the-badge&color=black&logo=clerk&logoColor=white" alt="clerk" />
