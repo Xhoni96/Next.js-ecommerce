@@ -10,7 +10,7 @@
     <a href="https://nextjs.org/" target="_blank">
          <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     </a>
-     <a href="https://www.typescriptlang.org/" target="_blank">
+     <a href="https://www.typescriptlang.org/" target="_blank" style="text-decoration:none;">
        <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
     </a>
      <a href="https://tailwindcss.com/" target="_blank">
