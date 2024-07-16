@@ -1,4 +1,4 @@
-<div align="center" style="margin-bottom:1rem">
+<div align="center">
   <br />
     <a href="https://github.com/Xhoni96/e-commerce-Next.js/tree/main/e-commerce-admin" target="_blank" style="display:flex;gap:2rem;">
       <img src="https://res.cloudinary.com/drvanrh8x/image/upload/v1721086505/assets/Dashboard_iy7acq.png" alt="CMS Banner" width=49%>
@@ -6,7 +6,7 @@
     </a>
   <br />
 
-  <div>
+  <div style="margin-top:1rem">
     <a href="https://nextjs.org/" target="_blank">
          <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     </a>
