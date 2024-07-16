@@ -6,7 +6,7 @@
     </a>
   <br />
 
-  <div style="margin-top:1rem">
+  <div style="margin-top:20px;">
     <a href="https://nextjs.org/" target="_blank">
          <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     </a>
@@ -28,7 +28,7 @@
       <a href="https://ui.shadcn.com/" target="_blank">
       <img src="https://img.shields.io/badge/shadcn/ui-black?style=for-the-badge&color=black&logo=shadcn/ui&logoColor=white" alt="shadcn" />
     </a>
-    </div >
+    </div>
 
   <h3 align="center">Eccommerce + Dashboard & CMS</h3>
 
