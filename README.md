@@ -40,3 +40,11 @@
 ## <a>🤸 Getting Started</a>
 
 Follow the steps described in each project README.md file to get the project started.
+
+## <h2>Admin</h2>
+
+[Link to Admin README](./e-commerce-admin/README.md)
+
+## <h2>Client</h2>
+
+[Link to Client README](./e-commerce-store/README.md)
