@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run generate_edgeql",
+    "prebuild": "npm run apply-migration",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
